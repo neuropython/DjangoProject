@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from .models import Task
 
 def todo_list(request):
+
+    all_data = Task.objects.all
     content = {
-        'todo_content': 'todo_content'
+        'todo_content': all_data
     }
     return render(
         request, 'todo_list.html', content
