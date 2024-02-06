@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,14 +14,15 @@
 
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#"><img src="{% static 'images/bioaddmed_icon_jpg.jpg' %}">TODO APP</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
+
         <a class="nav-link" aria-current="page" href="{% url 'todo_list' %}">TodoList</a>
         <a class="nav-link" href="{% url 'contact' %}">Contact</a>
         <a class="nav-link" href="{% url 'start' %}" >Start</a>
