@@ -46,7 +46,7 @@
               <td>{{ todo.title }}</td>
               <td><a href="{% url 'un_complete_task' todo.id %}">Un complete</a></td>
                   <td><a href="{% url 'edit_task' todo.id %}">Edit</a></td>
-                  <td><a href="{% url 'edit_task' todo.id %}">Delete</a></td>
+                  <td><a href="{% url 'delete_task' todo.id %}">Delete</a></td>
             </tr>
           {% else %}
             <tr>
@@ -60,5 +60,18 @@
   {% endif %}
   </tbody>
 </table>
+    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="?pg=1"><<</a></li>
+      {% if todo_content.has_previous %}
+    <li class="page-item"><a class="page-link" href="?pg={{ todo_content.previous_page_number }}">{{ todo_content.previous_page_number }}</a></li>
+      {% endif %}
+    <li class="page-item"><a class="page-link" href="?pg= {{ todo_content.number }}">{{ todo_content.number }}</a></li>
+      {% if todo_content.has_next %}
+    <li class="page-item"><a class="page-link" href="?pg={{ todo_content.next_page_number }} ">{{ todo_content.next_page_number }}</a></li>
+      {% endif %}
+    <li class="page-item"><a class="page-link" href="?pg={{todo_content.paginator.num_pages}}">>></a></li>
+  </ul>
+</nav>
 </div>
 {% endblock content %}

@@ -3,6 +3,9 @@ from django.shortcuts import render, redirect
 from .models import Task
 from .forms import TaskForm
 from django.contrib import messages
+from django.core.paginator import Paginator
+
+
 def todo_list(request):
     if request.method == 'POST':
         form = TaskForm(request.POST or None)
@@ -12,7 +15,11 @@ def todo_list(request):
         messages.success(request, ('New Task Added!'))
         return redirect('todo_list')
     else:
-        all_data = Task.objects.all
+        all_data = Task.objects.all()
+        paginator = Paginator(all_data, 5)
+        page = request.GET.get('pg')
+        all_data = paginator.get_page(page)
+
         content = {
             'todo_content': all_data
         }
