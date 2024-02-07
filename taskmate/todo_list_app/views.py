@@ -48,6 +48,29 @@ def edit_task(request, task_id):
     content = {
         'edit_task': task
     }
+    task = Task.objects.get(pk=task_id)
+    form = TaskForm(request.POST or None, instance= task)
+    if form.is_valid():
+        print('form is valid')
+        form.save()
+        return redirect('todo_list')
+    messages.success(request, ('Task Edited!'))
+
     return render(
         request, 'edit.html', content
     )
+
+
+def complete_task(request, task_id):
+    task = Task.objects.get(pk=task_id)
+    task.complete = True
+    task.save()
+    messages.success(request, ('Task Completed!'))
+    return redirect('todo_list')
+
+def un_complete_task(request, task_id):
+    task = Task.objects.get(pk=task_id)
+    task.complete = False
+    task.save()
+    messages.success(request, ('Task Completed!'))
+    return redirect('todo_list')

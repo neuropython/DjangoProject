@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>Start</title>
+    <title>Edit</title>
 {% endblock title %}
 
 {% block content %}
 <div class="container">
-     <h1>{{edit_task}}</h1>
+<form method="POST" class="row">
+    {% csrf_token %}
+    <div class="form-row align-items-center">
+        <div class="col-lg-6">
+            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="{{edit_task.title }}" name="title">
+            <input type="hidden" placeholder="{{edit_task}}" name="complete" value = "{{ edit_task.complete }}">
+        </div>
+
+        <div class="col-lg-6">
+            <button type="submit" class="btn btn-primary w-100">Edit Task</button>
+        </div>
+    </div>
+</form>
 </div>
 {% endblock content %}
