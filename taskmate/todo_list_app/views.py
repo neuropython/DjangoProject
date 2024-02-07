@@ -41,3 +41,13 @@ def start(request):
     return render(
         request, 'start.html', content
     )
+
+
+def edit_task(request, task_id):
+    task = Task.objects.get(pk=task_id)
+    content = {
+        'edit_task': task
+    }
+    return render(
+        request, 'edit.html', content
+    )

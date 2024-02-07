@@ -45,14 +45,14 @@
               <tr class = "table-success" >
               <td>{{ todo.title }}</td>
               <td>complete</td>
-                  <td>Edit</td>
-                  <td><a href="{% url 'delete_task' todo.id %}">Delete</td>
+                  <td><a href="{% url 'edit_task' todo.id %}">Edit</td>
+                  <td><a href="{% url 'edit_task' todo.id %}">Delete</td>
             </tr>
           {% else %}
             <tr>
               <td>{{ todo.title }}</td>
               <td>not complete</td>
-                  <td>Edit</td>
+                  <td><a href="{% url 'edit_task' todo.id %}">Edit</td>
                   <td><a href="{% url 'delete_task' todo.id %}">Delete</td>
             </tr>
           {% endif %}
