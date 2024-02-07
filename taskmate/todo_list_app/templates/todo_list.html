@@ -6,27 +6,29 @@
 
 {% block content %}
 <div class="container">
+
     {% if messages %}
         {% for message in messages %}'
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   {{ message }}
+
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
         {% endfor %}
     {% endif %}
-    <form method="POST">
-        {% csrf_token %}
+<form method="POST" class="row">
+    {% csrf_token %}
     <div class="form-row align-items-center">
-    <div class="col-auto">
-      <label class="sr-only" for="inlineFormInput">Name</label>
-      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="task name" name = "title">
-    </div>
+        <div class="col-lg-6">
+            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Task name" name="title">
+        </div>
 
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary mb-2">Add task</button>
+        <div class="col-lg-6">
+            <button type="submit" class="btn btn-primary w-100">Add Task</button>
+        </div>
     </div>
-  </div>
 </form>
+
 <table class="table table-dark">
   <thead>
     <tr>
@@ -44,14 +46,14 @@
               <td>{{ todo.title }}</td>
               <td>complete</td>
                   <td>Edit</td>
-                  <td>Delete</td>
+                  <td><a href="{% url 'delete_task' todo.id %}">Delete</td>
             </tr>
           {% else %}
             <tr>
               <td>{{ todo.title }}</td>
               <td>not complete</td>
                   <td>Edit</td>
-                  <td>Delete</td>
+                  <td><a href="{% url 'delete_task' todo.id %}">Delete</td>
             </tr>
           {% endif %}
     {% endfor %}

@@ -20,6 +20,12 @@ def todo_list(request):
             request, 'todo_list.html', content
         )
 
+def delete_task(request, task_id):
+    task = Task.objects.get(pk=task_id)
+    task.delete()
+    messages.success(request, ('Task Deleted!'))
+    return redirect('todo_list')
+
 def contact(request):
     content = {
         'contact_content': 'contact_content'
