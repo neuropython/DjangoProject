@@ -81,3 +81,12 @@ def un_complete_task(request, task_id):
     task.save()
     messages.success(request, ('Task Completed!'))
     return redirect('todo_list')
+
+def index(request):
+    content = {
+        'index_content': 'Index Content'
+    }
+    return render(
+        request, 'index.html', content
+    )
+
