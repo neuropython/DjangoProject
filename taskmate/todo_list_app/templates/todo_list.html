@@ -8,9 +8,10 @@
 <div class="container">
     {% if messages %}
         {% for message in messages %}'
-            <div class="alert alert-primary" role="alert">
-                {{message}}
-            </div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ message }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
         {% endfor %}
     {% endif %}
     <form method="POST">
@@ -42,11 +43,15 @@
               <tr class = "table-success" >
               <td>{{ todo.title }}</td>
               <td>complete</td>
+                  <td>Edit</td>
+                  <td>Delete</td>
             </tr>
           {% else %}
             <tr>
               <td>{{ todo.title }}</td>
               <td>not complete</td>
+                  <td>Edit</td>
+                  <td>Delete</td>
             </tr>
           {% endif %}
     {% endfor %}
