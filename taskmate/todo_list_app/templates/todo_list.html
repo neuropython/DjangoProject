@@ -6,6 +6,26 @@
 
 {% block content %}
 <div class="container">
+    {% if messages %}
+        {% for message in messages %}'
+            <div class="alert alert-primary" role="alert">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+    <div class="form-row align-items-center">
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInput">Name</label>
+      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="task name" name = "title">
+    </div>
+
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2">Add task</button>
+    </div>
+  </div>
+</form>
 <table class="table table-dark">
   <thead>
     <tr>
@@ -16,13 +36,21 @@
     </tr>
   </thead>
   <tbody>
-  {% for todo in todo_content %}
-    <tr>
-      <td>{{ todo.title }}</td>
-      <td>{{ todo.complete }}</td>
-
-    </tr>
+  {% if todo_content %}
+    {% for todo in todo_content %}
+          {% if todo.complete %}
+              <tr class = "table-success" >
+              <td>{{ todo.title }}</td>
+              <td>complete</td>
+            </tr>
+          {% else %}
+            <tr>
+              <td>{{ todo.title }}</td>
+              <td>not complete</td>
+            </tr>
+          {% endif %}
     {% endfor %}
+  {% endif %}
   </tbody>
 </table>
 </div>
