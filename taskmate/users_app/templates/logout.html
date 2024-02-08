@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-<title>Register</title>
+<title>Logout</title>
 {% endblock title %}
 
 {% block content %}
@@ -21,7 +21,7 @@
         <form method="POST" class="mt-5 col-6">
             {% csrf_token %}
 
-            {{ content|crispy }}
+            {{ form|crispy }}
             <button type="submit" class="btn btn-outline-primary mt-5 ">Register</button>
         </form>
     </div>
