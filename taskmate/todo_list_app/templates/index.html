@@ -1,11 +1,38 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
-    <title> Index </title>
+<title> Index </title>
 {% endblock title %}
 
 {% block content %}
+
 <div class="container">
-     <h1>{{index_content}}</h1>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            <div style="text-align: center;"><img src="{% static 'images/unseen-studio-s9CC2SKySJM-unsplash.jpg' %}" width="300" height="300" class="rounded shadow-lg"></div>
+        </div>
+        <div class="col-sm">
+            <div style="text-align: center;"><img src="{% static 'images/unseen-studio-s9CC2SKySJM-unsplash.jpg' %}" width="300" height="300" class="rounded shadow-lg"></div>
+        </div>
+        <div class="col-sm">
+            <div style="text-align: center;"><img src="{% static 'images/unseen-studio-s9CC2SKySJM-unsplash.jpg' %}" width="300" height="300" class="rounded shadow-lg"></div>
+        </div>
+    </div>
+        <div class="row mt-5">
+            <div class="col-md-10 offset-md-1">
+                <div style="text-align: center;"><h1>Welcome to my app</h1></div>
+                <div style="text-align: center;"><h3>Here you can track you todos list</h3></div>
+                <div style="text-align: center;"><h5>Click button to check more</h5></div>
+                <a href="{% url 'todo_list' %}">
+                    <div style="text-align: center;">
+                        <button type="button" class="btn btn-outline-secondary">
+                            Todo-app
+                        </button>
+                    </div>
+                </a>
+            </div>
+        </div>
 </div>
 {% endblock content %}
