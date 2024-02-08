@@ -1,9 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
-
+from .forms import CustomUserCreationForm
+from django.contrib import messages
+from django.shortcuts import redirect
 def register(request):
-    register_form = UserCreationForm()
+    if request.method == "POST":
+        register_form = CustomUserCreationForm(request.POST)
+
+        if register_form.is_valid():
+            messages.success(request, ("New User Created, Login to get started"))
+            return redirect('register')
+    else:
+        register_form = CustomUserCreationForm()
+
     content = {
         "content": register_form
     }

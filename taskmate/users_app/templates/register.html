@@ -1,18 +1,29 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}
-    <title>Contact</title>
+<title>Contact</title>
 {% endblock title %}
 
 {% block content %}
-
 <div class="container">
-    <form method="POST" class = "mt-5">
-        {% csrf_token %}
 
-        {{ content.as_p }}
-        <button type="submit" class="btn btn-outline-primary">Register</button>
-    </form>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
 </div>
 
-{% endblock content %}
+    <div class="container">
+        <form method="POST" class="mt-5">
+            {% csrf_token %}
+
+            {{ content|crispy }}
+            <button type="submit" class="btn btn-outline-primary">Register</button>
+        </form>
+    </div>
+
+    {% endblock content %}
