@@ -8,5 +8,6 @@ urlpatterns = [
     path('', views.index, name = "index"),
     path('todo_list/', include('todo_list_app.urls')),
     path('contact', views.contact, name='contact'),
+    path('account/', include('users_app.urls')),
     path('start', views.start, name='start'),
 ]
