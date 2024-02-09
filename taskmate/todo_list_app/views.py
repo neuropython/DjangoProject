@@ -79,7 +79,7 @@ def un_complete_task(request, task_id):
     task = Task.objects.get(pk=task_id)
     task.complete = False
     task.save()
-    messages.success(request, ('Task Completed!'))
+    messages.success(request, ('Task not jet completed'))
     return redirect('todo_list')
 
 def index(request):

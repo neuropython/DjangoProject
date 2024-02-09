@@ -8,22 +8,18 @@
 {% block content %}
 <div class="container">
 
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-    {{ message }}
-</div>
-{% endfor %}
-{% endif %}
-</div>
-
-    <div class="container">
-        <form method="POST" class="mt-5 col-6">
-            {% csrf_token %}
-
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-outline-primary mt-5 ">Register</button>
-        </form>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
     </div>
 
-    {% endblock content %}
+    <br>
+        <h1>Thank you!!</h1>
+    </br>
+    {% endfor %}
+    {% endif %}
+</div>
+
+
+{% endblock content %}

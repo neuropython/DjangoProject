@@ -47,8 +47,8 @@
     {% for todo in todo_content %}
           {% if todo.complete %}
               <tr class = "table-success" >
-              <td>{{ todo.title }}</td>
-              <td><a href="{% url 'un_complete_task' todo.id %}"><button type="button" class="btn btn-success">Mark as un-Complete</button></a></td>
+              <td><del>{{ todo.title }}</del></td>
+              <td><a href="{% url 'un_complete_task' todo.id %}"><button type="button" class="btn btn-danger">Mark as un-Complete</button></a></td>
                   <td><a href="{% url 'edit_task' todo.id %}"><button type="button" class="btn btn-light">Edit</button></a></td>
                   <td><a href="{% url 'delete_task' todo.id %}"><button type="button" class="btn btn-dark">Delete</button></a></td>
             </tr>
