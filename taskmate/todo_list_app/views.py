@@ -16,7 +16,7 @@ def todo_list(request):
             print('form is valid')
             form.save(commit=False).user = user
             form.save()
-        messages.success(request, ('New Task Added!'))
+            messages.success(request, ('New Task Added!'))
         return redirect('todo_list')
     else:
         all_data = Task.objects.filter(user=request.user)
@@ -68,8 +68,8 @@ def edit_task(request, task_id):
     if form.is_valid():
         print('form is valid')
         form.save()
+        messages.success(request, ('Task Edited!'))
         return redirect('todo_list')
-    messages.success(request, ('Task Edited!'))
 
     return render(
         request, 'edit.html', content

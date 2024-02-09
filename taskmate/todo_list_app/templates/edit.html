@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="container">
-    {% if task_ob.manage == request.user %}
+    {% if edit_task.user == request.user %}
 <form method="POST" class="row">
     {% csrf_token %}
     <div class="form-row align-items-center">
