@@ -19,7 +19,7 @@ def todo_list(request):
         messages.success(request, ('New Task Added!'))
         return redirect('todo_list')
     else:
-        all_data = Task.objects.all()
+        all_data = Task.objects.filter(user=request.user)
         paginator = Paginator(all_data, 5)
         page = request.GET.get('pg')
         all_data = paginator.get_page(page)
@@ -33,8 +33,11 @@ def todo_list(request):
 
 def delete_task(request, task_id):
     task = Task.objects.get(pk=task_id)
-    task.delete()
-    messages.success(request, ('Task Deleted!'))
+    if task.user == request.user:
+        task.delete()
+        messages.success(request, ('Task Deleted!'))
+    else:
+        messages.error(request, ('Access Restricted!'))
     return redirect('todo_list')
 
 @login_required
@@ -75,16 +78,22 @@ def edit_task(request, task_id):
 
 def complete_task(request, task_id):
     task = Task.objects.get(pk=task_id)
-    task.complete = True
-    task.save()
-    messages.success(request, ('Task Completed!'))
+    if task.user == request.user:
+        task.complete = True
+        messages.success(request, ('Task Completed!'))
+        task.save()
+    else:
+        messages.error(request, ('Access Restricted!'))
     return redirect('todo_list')
 
 def un_complete_task(request, task_id):
     task = Task.objects.get(pk=task_id)
-    task.complete = False
-    task.save()
-    messages.success(request, ('Task not jet completed'))
+    if task.user == request.user:
+        task.complete = False
+        messages.success(request, ('Task do not completed!'))
+        task.save()
+    else:
+        messages.error(request, ('Access Restricted!'))
     return redirect('todo_list')
 
 def index(request):
