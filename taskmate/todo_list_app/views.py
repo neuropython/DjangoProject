@@ -10,8 +10,11 @@ from django.contrib.auth.decorators import login_required
 def todo_list(request):
     if request.method == 'POST':
         form = TaskForm(request.POST or None)
+        user = request.user
+        print(user)
         if form.is_valid():
             print('form is valid')
+            form.save(commit=False).user = user
             form.save()
         messages.success(request, ('New Task Added!'))
         return redirect('todo_list')
