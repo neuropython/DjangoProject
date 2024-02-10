@@ -90,6 +90,7 @@ DATABASES = {
         'PASSWORD': env('DJANGO_DATABASE_PASSWORD'),
         'HOST': env('DJANGO_DATABASE_HOST'),
         'PORT': env('DJANGO_DATABASE_PORT')
+        
     }
 }
 
