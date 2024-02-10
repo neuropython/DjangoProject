@@ -144,3 +144,4 @@ CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap5'
 LOGIN_REDIRECT_URL = 'todo_list'
 
 LOGIN_URL = 'login'
+
