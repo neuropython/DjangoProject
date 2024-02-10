@@ -145,3 +145,4 @@ LOGIN_REDIRECT_URL = 'todo_list'
 
 LOGIN_URL = 'login'
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
