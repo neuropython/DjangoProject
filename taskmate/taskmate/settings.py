@@ -30,8 +30,6 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'taskmanagementweb.up.railway.app']
-
 
 # Application definition
 
@@ -60,6 +58,9 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://taskmanagementweb.up.railway.app']
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'taskmanagementweb.up.railway.app']
+
 
 ROOT_URLCONF = 'taskmate.urls'
 
