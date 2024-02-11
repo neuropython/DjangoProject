@@ -21,6 +21,4 @@ Deployed on Railway - https://taskmanagementweb.up.railway.app/
 Username: ExampleUser  
 Password: examplepassword@
 
-  
-## Documentation
-[Official Django Documentation](https://taskmanagementweb.up.railway.app/)
+
