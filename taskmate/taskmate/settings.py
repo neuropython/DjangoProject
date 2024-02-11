@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['taskmanagementweb.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://taskmanagementweb.up.railway.app']
 
 ROOT_URLCONF = 'taskmate.urls'
 
