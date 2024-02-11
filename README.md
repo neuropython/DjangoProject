@@ -16,7 +16,7 @@ Taskmate is a task manager web application built using Django Framework. This pr
 
 ## Demo
 
-Deployed on Heroku - http://taskmatepro.herokuapp.com/
+Deployed on Railway - https://taskmanagementweb.up.railway.app/
 
 Username: ExampleUser  
 Password: examplepassword@
